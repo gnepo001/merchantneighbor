@@ -1,3 +1,5 @@
 ll_env
 
 mnbackend/.env
+
+mnbackend/db.sqlite3
