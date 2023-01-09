@@ -1,10 +1,10 @@
 ll_env
 
-mnbackend/.env
+server/.env
 
-mnbackend/db.sqlite3
+server/db.sqlite3
 
-mnbackend/api/__pycache__
-mnbackend/backenddjango/__pycache__
-mnbackend/post/__pycache__
+server/api/__pycache__
+server/backenddjango/__pycache__
+server/post/__pycache__
 
