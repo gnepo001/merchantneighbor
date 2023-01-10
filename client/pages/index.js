@@ -1,15 +1,28 @@
 import React from "react";
-import Link from "next/link";
+import axios from "axios";
+
+import Header from "../components/header";
+import NavBar from "../components/NavBar";
+import Posts from "../components/Posts";
 
 const index = () => {
   return (
     <div className="bg-white text-black">
-      <div className="">
-        <div>MerchantNeighbor</div>
-        <div>Find the items your looking for at low prices!</div>
-      </div>
+      <Header />
+      <NavBar />
+      <Posts />
     </div>
   );
+};
+
+export const getServerSideProps = async () => {
+  const posts = await axios.get("http://localhost:8000/api/posts");
+
+  return {
+    props: {
+      post: posts.data,
+    },
+  };
 };
 
 export default index;
