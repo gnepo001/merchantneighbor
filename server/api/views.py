@@ -2,16 +2,16 @@ from rest_framework import generics, permissions
 from .serializers import PostSerializer
 from post.models import Post
 
-# class PostList(generics.ListAPIView):
-#     serializer_class = PostSerializer
+class GetAllPosts(generics.ListAPIView):
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-#     def get_queryset(self):
-#         user = self.request.user
-#         return Post.objects.filter(user=user).order_by('-created')
+    def get_queryset(self):
+        return Post.objects.all().order_by('-created')
 
 class PostListCreate(generics.ListCreateAPIView):
     serializer_class = PostSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get_queryset(self):
         user = self.request.user
