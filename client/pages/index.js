@@ -5,12 +5,12 @@ import Header from "../components/header";
 import NavBar from "../components/NavBar";
 import Posts from "../components/Posts";
 
-const index = () => {
+const index = ({ posts }) => {
   return (
     <div className="bg-white text-black">
       <Header />
       <NavBar />
-      <Posts />
+      <Posts posts={posts} />
     </div>
   );
 };
@@ -20,7 +20,7 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      post: posts.data,
+      posts: posts.data,
     },
   };
 };

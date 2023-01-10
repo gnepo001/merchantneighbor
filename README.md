@@ -5,4 +5,11 @@
 <h3>Tech Stacked Used</h3>
 
 - Python
+
   - django
+  - cors
+
+- Javascrip/Node
+
+  - axios
+  -
