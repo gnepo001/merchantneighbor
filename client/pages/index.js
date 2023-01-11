@@ -4,6 +4,7 @@ import axios from "axios";
 import Header from "../components/header";
 import NavBar from "../components/NavBar";
 import Posts from "../components/Posts";
+import Footer from "../components/Footer";
 
 const index = ({ posts }) => {
   return (
@@ -11,6 +12,7 @@ const index = ({ posts }) => {
       <Header />
       <NavBar />
       <Posts posts={posts} />
+      <Footer />
     </div>
   );
 };
