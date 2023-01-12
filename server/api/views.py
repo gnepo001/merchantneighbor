@@ -1,5 +1,5 @@
 from rest_framework import generics, permissions
-from .serializers import PostSerializer
+from .serializers import PostSerializer, PostToggleSoldSerializer
 from post.models import Post
 
 class GetAllPosts(generics.ListAPIView):
@@ -27,3 +27,15 @@ class PostRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     def get_queryset(self):
         user = self.request.user
         return Post.objects.filter(user=user)
+
+class PostToggleSold(generics.UpdateAPIView):
+    serializer_class = PostToggleSoldSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        return Post.objects.filter(user=user)
+
+    def perform_update(self,serializer):
+        serializer.instance.sold = not(serializer.instance.sold)
+        serializer.save()
