@@ -2,6 +2,8 @@ from rest_framework import generics, permissions
 from .serializers import PostSerializer, PostToggleSoldSerializer
 from post.models import Post
 
+######## Return // Post Data ###########
+
 class GetAllPosts(generics.ListAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]

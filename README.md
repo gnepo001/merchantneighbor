@@ -8,6 +8,7 @@
 
   - django
   - cors
+  - pillow
 
 - Javascrip/Node
 
