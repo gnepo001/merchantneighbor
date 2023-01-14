@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
+    header_image = models,ImageField(null=True,blank=True)
     price = models.IntegerField(default=0)
     description = models.TextField(blank=True)
    
