@@ -4,7 +4,7 @@
 
 <h1>Current Render 1/14/23</h1>
 <div style="width:85%;height:85%">
-  <img src="./webappRenders/render_02.png">
+  <img src="./webappRenders/render_03.png">
 </div>
 
 <h3>Tech Stacked Used</h3>

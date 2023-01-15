@@ -2,15 +2,22 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="flex flex-row bg-[#0FE2D5] text-white justify-around">
+    <div className="flex flex-row bg-[#0FE2D5] text-white justify-around mt-5 py-5">
+      <div className="flex flex-col w-1/5">
+        <div className="font-bold">Shop</div>
+        <div>How it works</div>
+        <div>How to Stay safe</div>
+      </div>
       <div className="flex flex-col w-1/5">
         <div className="font-bold">About</div>
-        <div>About Us</div>
-        <div>About</div>
+        <div>Our Mission</div>
+        <div>Our Technology</div>
+        <div>Careers</div>
       </div>
       <div className="flex flex-col w-1/5">
         <div className="font-bold">Help</div>
-        <div>Help Center</div>
+        <div>FAQs</div>
+        <div>Support</div>
         <div>Community</div>
       </div>
       <div className="flex flex-col w-1/5">
