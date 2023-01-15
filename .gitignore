@@ -7,4 +7,6 @@ server/db.sqlite3
 server/api/__pycache__
 server/backenddjango/__pycache__
 server/post/__pycache__
-
+server/media/files
+server/post/migrations/
+server/api/migrations/
