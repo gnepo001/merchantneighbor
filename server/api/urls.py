@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+
+
 urlpatterns = [
 path('posts/', views.GetAllPosts.as_view()), #GET all posts in database
 path('posts/<int:pk>',views.PostRetrieveUpdateDestroy.as_view()), 
