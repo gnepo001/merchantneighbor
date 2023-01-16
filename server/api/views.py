@@ -1,15 +1,23 @@
 from rest_framework import generics, permissions
 from .serializers import PostSerializer, PostToggleSoldSerializer
 from post.models import Post
-
 ######## Return // Post Data ###########
-
+#GET NON-AUTH
 class GetAllPosts(generics.ListAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get_queryset(self):
         return Post.objects.all().order_by('-created')
+
+class GetSinglePost(generics.ListAPIView):
+    serializer_class = PostSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def get_queryset(self):
+        return Post.objects.filter(pk=self.kwargs['pk']) #get url parameters
+    # def get_queryset(self):
+    #     return Post.objects.filter(pk=6)
 
 class PostListCreate(generics.ListCreateAPIView):
     serializer_class = PostSerializer
