@@ -21,6 +21,11 @@
   -
 
 <h1>Dev blogs</h1>
+-1/15/23
+
+- Added dynamic url get api to backend
+- created client side dynamic url page rendering to pull data from backend
+
 -1/14/23
 
 Added image upload server func and pull to client
