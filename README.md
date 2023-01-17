@@ -2,10 +2,11 @@
 
 <p>This will be an app where users can create an account and post items for sell. Other users can comment and send offers.</p>
 
-<h1>Current Render 1/14/23</h1>
-<div style="width:85%;height:85%">
-  <img src="./webappRenders/render_03.png">
-</div>
+<h1>Current Render 1/16/23</h1>
+
+|                            Index/Landing                            |                                                         Specific item |
+| :-----------------------------------------------------------------: | --------------------------------------------------------------------: |
+| <img src="./webappRenders/render_03.png" width=500px height=250px/> | <img src="./webappRenders/render_03_1.png" width=500px height=250px/> |
 
 <h3>Tech Stacked Used</h3>
 
@@ -18,7 +19,7 @@
 - Javascrip/Node
 
   - axios
-  -
+  - number-format.js
 
 <h1>Dev blogs</h1>
 -1/15/23
