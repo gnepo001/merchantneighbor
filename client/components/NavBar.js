@@ -1,10 +1,14 @@
 import React from "react";
 import Link from "next/link";
 
+//Nav bar
+
+//custom nav link
 const NavButton = ({ link, tag }) => {
   return <Link href={link}>{tag}</Link>;
 };
 
+//Over all Navbar link
 const NavBar = () => {
   return (
     <div className="border-b-2 border-solid mt-5 pb-2">

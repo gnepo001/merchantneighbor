@@ -2,9 +2,11 @@ import React from "react";
 import format from "number-format.js";
 import Link from "next/link";
 
+// Post Component
 const Post = ({ title, image, description, price }) => {
   return (
     <div className="flex flex-col mx-3 mt-5 cursor-pointer">
+      {/* render image if none render "no image text" */}
       {image ? (
         <img
           className="object-cover h-48 w-96 rounded-lg hover:opacity-60 transition duration-300 ease-in-out"
@@ -16,6 +18,7 @@ const Post = ({ title, image, description, price }) => {
         </div>
       )}
       <h1 className="font-bold">{title}</h1>
+      {/* Render Price if none render "Free" */}
       {price == 0 ? (
         "FREE"
       ) : (
@@ -27,10 +30,12 @@ const Post = ({ title, image, description, price }) => {
   );
 };
 
+// Posts Component
 const Posts = ({ posts }) => {
   return (
     <div className="grid grid-cols-4 gap-4 place-items-stretch ">
       {posts.map((post) => (
+        // Sends link to pages/[id].js
         <Link
           key={post.id}
           href={{

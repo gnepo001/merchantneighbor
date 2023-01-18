@@ -1,5 +1,6 @@
 import React from "react";
 
+// Footer bottom page info
 const Footer = () => {
   return (
     <div className="flex flex-row bg-[#0FE2D5] text-white justify-around mt-5 py-5">

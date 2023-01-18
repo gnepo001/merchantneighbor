@@ -8,7 +8,7 @@ import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
 
 const Post = () => {
-  const router = useRouter();
+  const router = useRouter(); //create router to pull data from url params
   const { id } = router.query;
 
   const [postData, setPostData] = useState({});
@@ -19,6 +19,7 @@ const Post = () => {
     setPostData(data.data[0]);
   };
 
+  //runs during first render and any re renders
   useEffect(() => {
     if (router.isReady) {
       fetchData();
