@@ -22,7 +22,7 @@ const Post = ({ title, image, description, price }) => {
       {price == 0 ? (
         "FREE"
       ) : (
-        <div>{format("$ #,###.00", price, { enforceMaskSign: true })}</div>
+        <div>{format("$ #,###", price, { enforceMaskSign: true })}</div>
       )}
       <p className="text-gray-400 text-sm ">{description}</p>
     </div>

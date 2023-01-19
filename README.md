@@ -6,7 +6,7 @@
 
 |                            Index/Landing                            |                                                         Specific item |
 | :-----------------------------------------------------------------: | --------------------------------------------------------------------: |
-| <img src="./webappRenders/render_03.png" width=500px height=250px/> | <img src="./webappRenders/render_03_1.png" width=500px height=250px/> |
+| <img src="./webappRenders/render_03.png" width=500px height=300px/> | <img src="./webappRenders/render_03_1.png" width=500px height=300px/> |
 
 <h3>Tech Stacked Used</h3>
 
