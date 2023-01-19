@@ -24,7 +24,6 @@ const Post = ({ title, image, description, price }) => {
       ) : (
         <div>{format("$ #,###.00", price, { enforceMaskSign: true })}</div>
       )}
-
       <p className="text-gray-400 text-sm ">{description}</p>
     </div>
   );

@@ -20,7 +20,7 @@ const index = ({ posts }) => {
 //Pre render data fetching
 export const getServerSideProps = async () => {
   const posts = await axios.get("http://localhost:8000/api/posts");
-
+  console.log(posts);
   return {
     props: {
       posts: posts.data,
