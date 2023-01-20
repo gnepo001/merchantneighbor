@@ -6,8 +6,11 @@ class Post(models.Model):
     image= models.FileField(upload_to='files/', null=True, verbose_name="") #image field
     price = models.IntegerField(default=0)
     description = models.TextField(blank=True)
-    likes = models.CharField(default=0,max_length=100)
-   
+    likes = models.IntegerField(default=0)
+
+    #sqlite doesnt support arrays will need to use some coding magic to handle this in the front end
+    tags = models.CharField(max_length=30,blank=False,default="tag1,tag2,...") 
+
     created = models.DateTimeField(auto_now_add=True)
     sold = models.BooleanField(default=False)
 
