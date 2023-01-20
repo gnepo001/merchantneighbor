@@ -20,6 +20,7 @@
 
   - axios
   - number-format.js
+  - moment.js
 
 <h1>Dev blogs</h1>
 -1/15/23
