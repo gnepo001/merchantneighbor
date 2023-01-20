@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'corsheaders', # cors
     'api',
     'post',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,5 @@ CORS_ORIGIN_WHITELIST = [
 #added this for media file upload images
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media/')
 MEDIA_URL= "/media/"
+
+AUTH_USER_MODEL = "accounts.CustomUser" #custom user model

@@ -10,3 +10,5 @@ server/post/__pycache__
 server/media/files
 server/post/migrations/
 server/api/migrations/
+server/accounts/migrations/
+server/accounts/__pycache__
