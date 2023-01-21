@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 import Header from "../components/Header";
@@ -7,9 +7,11 @@ import Posts from "../components/Posts";
 import Footer from "../components/Footer";
 
 const index = ({ posts }) => {
+  const [user, setUser] = useState(null);
+
   return (
     <div className="bg-white text-black">
-      <Header />
+      <Header user={user} />
       <NavBar />
       <Posts posts={posts} />
       <Footer />
@@ -20,7 +22,6 @@ const index = ({ posts }) => {
 //Pre render data fetching
 export const getServerSideProps = async () => {
   const posts = await axios.get("http://localhost:8000/api/posts");
-  console.log(posts);
   return {
     props: {
       posts: posts.data,

@@ -16,7 +16,7 @@ const Post = () => {
 
   const fetchData = async () => {
     const data = await axios.get(`http://localhost:8000/api/posts/${id}`);
-    console.log(data.data);
+
     setPostData(data.data[0]);
   };
 
@@ -57,7 +57,7 @@ const Post = () => {
               Make Offer
             </button>
           </div>
-          {/* <h1>{postData.user}</h1> */}
+          <h1>{postData.user}</h1>
         </div>
       </div>
       <Footer />
