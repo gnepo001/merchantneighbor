@@ -31,7 +31,7 @@ const Post = () => {
     <div className="bg-white text-black">
       <Header />
       <NavBar />
-      <div className="flex flex-row  mt-12">
+      <div className="flex flex-row  mt-12 max-w-7xl mx-auto">
         <div className="w-2/5 h-1/3 mt-5 mx-5 bg-gray-100 p-4 block overflow-hidden">
           {postData.image ? (
             <img className="rounded-xl" src={postData.image} />
