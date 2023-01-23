@@ -2,10 +2,10 @@
 
 <p>This will be an app where users can create an account and post items for sell. Other users can comment and send offers.</p>
 
-<h1>Current Render 1/20/23</h1>
+<h1>Current Render 1/22/23</h1>
 <img src="./webappRenders/render_04.png" width=500px height=300px/> 
 <img src="./webappRenders/render_03_2.png" width=500px height=300px/>
-<img src="./webappRenders/render_03_1.png" width=500px height=300px/>
+<img src="./webappRenders/render_04_1.png" width=500px height=300px/>
 
 <h3>Tech Stacked Used</h3>
 
@@ -25,6 +25,11 @@
 -1/20/23
 
 - Added a client side login/sign up popup
+
+-1/22/23
+
+- Server side - added user name field and date joined on post model
+- Added user name and time joined on each post client side render
 
 -1/15/23
 
