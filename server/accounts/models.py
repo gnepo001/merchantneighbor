@@ -6,5 +6,3 @@ class CustomUser(AbstractUser):
     pass
     class Meta:
         db_table = 'auth_user'
-
-# Create your models here.
