@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import format from "number-format.js";
 import moment from "moment";
+import { RxAvatar } from "react-icons/rx";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -16,7 +17,7 @@ const Post = () => {
 
   const fetchData = async () => {
     const data = await axios.get(`http://localhost:8000/api/posts/${id}`);
-
+    console.log(data.data[0]);
     setPostData(data.data[0]);
   };
 
@@ -57,7 +58,17 @@ const Post = () => {
               Make Offer
             </button>
           </div>
-          <h1>{postData.user}</h1>
+          <div className="flex flex-row justify-around w-2/5 mt-5">
+            <div className="rounded-full text-3xl w-5 text-center justify-center">
+              <RxAvatar />
+            </div>
+            <div>
+              <div className="font-bold">{postData.user}</div>
+              <h1>
+                Member since {moment(postData.datejoined).format("MMM YYYY")}
+              </h1>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />

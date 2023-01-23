@@ -4,7 +4,7 @@ import { TiDelete } from "react-icons/ti";
 const Popup = ({ ctp }) => {
   return (
     <div className="absolute w-screen h-screen top-0 bg-[#00000066] -translate-x-[40%] pt-28">
-      <div className="bg-white z-100 rounded-lg w-1/3 h-1/2 mx-auto mt-22 max-w-md">
+      <div className="bg-white z-100 rounded-lg w-1/3 h-3/5 mx-auto mt-22 max-w-md">
         <div className="flex flex-row ml-40 justify-between w-1/2 ">
           <h1 className="text-center pt-5 text-2xl">Login In</h1>
           <button className="text-gray-500" onClick={() => ctp(false)}>
