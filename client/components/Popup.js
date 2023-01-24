@@ -7,6 +7,7 @@ const Popup = ({ ctp }) => {
       <div className="bg-white z-100 rounded-lg w-1/3 h-3/5 mx-auto mt-22 max-w-md">
         <div className="flex flex-row ml-40 justify-between w-1/2 ">
           <h1 className="text-center pt-5 text-2xl">Login In</h1>
+          {/* sends state back to the parent div */}
           <button className="text-gray-500" onClick={() => ctp(false)}>
             Cancel
           </button>
