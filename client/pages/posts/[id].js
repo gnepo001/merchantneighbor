@@ -46,8 +46,10 @@ const Post = () => {
             <h1 className="mx-5 font-bold text-2xl">
               {format("$ #,###", postData.price, { enforceMaskSign: true })}
             </h1>
+
             {/* <h1>{moment(postData.created).format("M-D-YYYY")}</h1> */}
             <h1 className="mx-5">{moment(postData.created).fromNow()}</h1>
+
             <h1 className="w-full mx-5">{postData.description}</h1>
           </div>
           <div className="flex flex-col items-center border-b-2 pb-5">

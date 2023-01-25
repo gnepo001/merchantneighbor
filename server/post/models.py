@@ -12,6 +12,7 @@ class Post(models.Model):
     description = models.TextField(blank=True)
     likes = models.IntegerField(default=0)
     tags = models.CharField(max_length=30,blank=False,default="tag1,tag2,...") #sqlite doesnt support arrays
+    date_modified = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
     sold = models.BooleanField(default=False)
 
