@@ -1,6 +1,17 @@
 import React, { useState } from "react";
+import { signup } from "../services/index";
 
 const Signup = ({ ctp }) => {
+  const [userdata, setUserdata] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signup(userdata);
+  };
+
   return (
     <div>
       <div className="flex flex-row ml-40 justify-between w-1/2 ">
@@ -13,13 +24,19 @@ const Signup = ({ ctp }) => {
       <div className="font-bold text-3xl text-[#0FE2D5] text-center mt-4">
         MerchantNeighbor
       </div>
-      <form className="flex flex-col w-2/3 mx-auto mt-6">
+      <form
+        className="flex flex-col w-2/3 mx-auto mt-6"
+        autoComplete="off"
+        onSubmit={handleSubmit}
+      >
         <label htmlFor="email">Email</label>
         <input
           className="bg-white border-2 rounded-lg"
           type="text"
           id="email"
           name="email"
+          value={userdata.email}
+          onChange={(e) => setUserdata({ ...userdata, email: e.target.value })}
         />
         <label htmlFor="email">Password</label>
         <input
@@ -27,6 +44,10 @@ const Signup = ({ ctp }) => {
           type="password"
           id="password"
           name="password"
+          value={userdata.password}
+          onChange={(e) =>
+            setUserdata({ ...userdata, password: e.target.value })
+          }
         />
         <label htmlFor="email">Confirm Password</label>
         <input
@@ -85,6 +106,8 @@ const Login = ({ ctp }) => {
 
 const Popup = ({ ctp }) => {
   const [isRegistered, setIsRegistered] = useState(true);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <div className="absolute w-screen h-screen top-0 bg-[#00000066] -translate-x-[40%] pt-28">

@@ -1,7 +1,5 @@
 import axios from "axios";
 
-class PostDataService {
-  signup(data) {
-    return axios.post("http://localhost:8000/api/signup/", data);
-  }
-}
+export const signup = (data) => {
+  return axios.post("http://localhost:8000/api/signup/", data);
+};
