@@ -1,6 +1,14 @@
 from rest_framework import generics, permissions
 from .serializers import PostSerializer, PostToggleSoldSerializer
 from post.models import Post
+
+from django.db import IntegrityError
+from accounts.models import CustomUser
+from rest_framework.parsers import JSONParser
+from rest_framework.authtoken.models import Token 
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
 ######## Return // Post Data ###########
 #GET NON-AUTH
 class GetAllPosts(generics.ListAPIView):
@@ -49,3 +57,20 @@ class PostToggleSold(generics.UpdateAPIView):
     def perform_update(self,serializer):
         serializer.instance.sold = not(serializer.instance.sold)
         serializer.save()
+
+@csrf_exempt
+def signup(request):
+    if request.method == 'POST':
+        try:
+            data = JSONParser().parse(request)
+            user = CustomUser.objects.create_user(
+                username=data['email'],
+                password = data['password']
+            )
+            user.save()
+
+            token = Token.objects.create(user=user)
+            return JsonResponse({'token':str(token)},status=201)
+        except IntegrityError:
+            return JsonResponse({'error':'username taken. CHoose another username'},status=400)
+

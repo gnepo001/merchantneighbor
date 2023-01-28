@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'api',
     'post',
     'accounts.apps.AccountsConfig',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +59,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware', # need to add middleware for cors
 ]
+
+REST_FRAMEWORK ={
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 ROOT_URLCONF = 'backenddjango.urls'
 
