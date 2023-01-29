@@ -8,6 +8,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework.authtoken.models import Token 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import authenticate
 
 ######## Return // Post Data ###########
 #GET NON-AUTH
@@ -75,3 +76,19 @@ def signup(request):
         except IntegrityError:
             return JsonResponse({'error':'username taken. CHoose another username'},status=400)
 
+@csrf_exempt
+def login(request):
+    if request.method == "POST":
+        data = JSONParser().parse(request) 
+        user = authenticate(
+            request,
+            username=data['email'],
+            password=data['password'])
+        if user is None:
+            return JsonResponse({'error':'unable to login. check username and password'},status=400)
+        else: # return user token
+            try:
+                token = Token.objects.get(user=user)
+            except: # if token not in db, create a new one
+                token = Token.objects.create(user=user)
+            return JsonResponse({'token':str(token)}, status=201)
