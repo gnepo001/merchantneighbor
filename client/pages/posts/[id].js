@@ -44,7 +44,9 @@ const Post = () => {
           <h1 className="text-center text-5xl ">{postData.title}</h1>
           <div className="pb-12">
             <h1 className="mx-5 font-bold text-2xl">
-              {format("$ #,###", postData.price, { enforceMaskSign: true })}
+              {postData.price == 0
+                ? "Free"
+                : format("$ #,###", postData.price, { enforceMaskSign: true })}
             </h1>
 
             {/* <h1>{moment(postData.created).format("M-D-YYYY")}</h1> */}
