@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { signup } from "../services/index";
+import { signup, login } from "../services/index";
 
 const Signup = ({ ctp }) => {
   const [userdata, setUserdata] = useState({
@@ -8,7 +8,6 @@ const Signup = ({ ctp }) => {
   });
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     signup(userdata);
   };
 
@@ -67,6 +66,15 @@ const Signup = ({ ctp }) => {
 };
 
 const Login = ({ ctp }) => {
+  const [userdata, setUserdata] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = (e) => {
+    login(userdata);
+  };
+
   return (
     <div>
       <div className="flex flex-row ml-40 justify-between w-1/2 ">
@@ -79,13 +87,19 @@ const Login = ({ ctp }) => {
       <div className="font-bold text-3xl text-[#0FE2D5] text-center mt-4">
         MerchantNeighbor
       </div>
-      <form className="flex flex-col w-2/3 mx-auto mt-6">
+      <form
+        className="flex flex-col w-2/3 mx-auto mt-6"
+        autoComplete="off"
+        onSubmit={handleSubmit}
+      >
         <label htmlFor="email">Email</label>
         <input
           className="bg-white border-2 rounded-lg"
           type="text"
           id="email"
           name="email"
+          value={userdata.email}
+          onChange={(e) => setUserdata({ ...userdata, email: e.target.value })}
         />
         <label htmlFor="email">Password</label>
         <input
@@ -93,6 +107,10 @@ const Login = ({ ctp }) => {
           type="password"
           id="password"
           name="password"
+          value={userdata.password}
+          onChange={(e) =>
+            setUserdata({ ...userdata, password: e.target.value })
+          }
         />
         <input
           className="bg-[#0FE2D5] rounded-xl mt-5"
