@@ -58,6 +58,7 @@ class PostToggleSold(generics.UpdateAPIView):
         serializer.instance.sold = not(serializer.instance.sold)
         serializer.save()
 
+
 @csrf_exempt
 def signup(request):
     if request.method == 'POST':
@@ -67,10 +68,10 @@ def signup(request):
                 username=data['email'],
                 password = data['password']
             )
-            user.save()
+            user.save() #creates user to server/database
 
-            token = Token.objects.create(user=user)
-            return JsonResponse({'token':str(token)},status=201)
+            token = Token.objects.create(user=user) #creates token for auth
+            return JsonResponse({'token':str(token)},status=201) #returns token to client side can be stored via local storage
         except IntegrityError:
             return JsonResponse({'error':'username taken. CHoose another username'},status=400)
 

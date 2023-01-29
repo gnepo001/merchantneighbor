@@ -10,7 +10,7 @@ const index = ({ posts }) => {
   const [user, setUser] = useState(null);
 
   return (
-    <div className="bg-white text-black">
+    <div className="bg-white text-black flex flex-col">
       <Header user={user} />
       <NavBar />
       <Posts posts={posts} />

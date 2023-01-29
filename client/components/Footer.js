@@ -3,7 +3,7 @@ import React from "react";
 // Footer bottom page info
 const Footer = () => {
   return (
-    <div className="flex flex-row bg-[#0FE2D5] text-white justify-around mt-5 py-5">
+    <div className="flex flex-row bg-[#0FE2D5] text-white justify-around mt-5 pt-5 flex-1">
       <div className="flex flex-col w-1/5">
         <div className="font-bold">Shop</div>
         <div>How it works</div>
