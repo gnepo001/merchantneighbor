@@ -6,6 +6,7 @@ import Popup from "./Popup";
 const Header = () => {
   const [popup, setPopup] = useState(false);
   const [user, setUser] = useState(false);
+  const [email, SetEmail] = useState(false);
 
   const chidltoparent = (data) => {
     setPopup(data);
@@ -13,7 +14,11 @@ const Header = () => {
 
   const chidltoparent2 = (data1) => {
     //e.preventDefault();
-    setUser(data1);
+    console.log(data1);
+    SetEmail(data1.email);
+    setUser(data1.token);
+    localStorage.setItem("token", data1.token);
+    localStorage.setItem("email", data1.email);
 
     //console.log("tester");
   };
@@ -29,7 +34,7 @@ const Header = () => {
       </Link>
       <div className="flex flex-row justify-around font-bold text-lg w-1/5">
         {user ? (
-          <div>Welcome, {user}</div>
+          <div>Welcome, {email}</div>
         ) : (
           <button onClick={() => setPopup(!popup)}>
             <div>Log in</div>

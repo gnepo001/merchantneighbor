@@ -75,9 +75,9 @@ const Login = ({ ctp, ctp2 }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login(userdata).then((d) => {
-      ctp2(d.data.token);
+      ctp2(d.data);
     });
-    ctp(false); //auth grabbed and have exited form
+    ctp(false); //auth grabbed and exit form
   };
 
   return (
