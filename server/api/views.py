@@ -89,6 +89,8 @@ def login(request):
         else: # return user token
             try:
                 token = Token.objects.get(user=user)
+                email = data['email'] #collect email send to client
             except: # if token not in db, create a new one
                 token = Token.objects.create(user=user)
-            return JsonResponse({'token':str(token)}, status=201)
+            #returns data dict with token and email
+            return JsonResponse({'token':str(token),'email':str(email)}, status=201)
