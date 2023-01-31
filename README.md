@@ -22,11 +22,15 @@
   - moment.js
 
 <h1>Dev blogs</h1>
+-1/30/23
+
+- Added Auth to the login, able to login and set token to local storage. Loging in re-renders the header with a welcome to the logged in user by email.
+
 -1/20/23
 
 - Added a client side login/sign up popup
 
--1/22/23
+-1/18/23
 
 - Server side - added user name field and date joined on post model
 - Added user name and time joined on each post client side render
