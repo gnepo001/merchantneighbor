@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { signup, login } from "../services/index";
 
-const Signup = ({ ctp }) => {
+const Signup = ({ ctp, user2 }) => {
   const [userdata, setUserdata] = useState({
     email: "",
     password: "",
@@ -65,14 +65,19 @@ const Signup = ({ ctp }) => {
   );
 };
 
-const Login = ({ ctp }) => {
+const Login = ({ ctp, ctp2 }) => {
   const [userdata, setUserdata] = useState({
     email: "",
     password: "",
   });
 
-  const handleSubmit = (e) => {
-    login(userdata);
+  //able to pass auth token to header but resets after refresh page
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await login(userdata).then((d) => {
+      ctp2(d.data.token);
+    });
+    ctp(false); //auth grabbed and have exited form
   };
 
   return (
@@ -91,6 +96,7 @@ const Login = ({ ctp }) => {
         className="flex flex-col w-2/3 mx-auto mt-6"
         autoComplete="off"
         onSubmit={handleSubmit}
+        //onSubmit={() => ctp2("tester")}
       >
         <label htmlFor="email">Email</label>
         <input
@@ -122,7 +128,7 @@ const Login = ({ ctp }) => {
   );
 };
 
-const Popup = ({ ctp }) => {
+const Popup = ({ ctp, ctp2 }) => {
   const [isRegistered, setIsRegistered] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -130,7 +136,11 @@ const Popup = ({ ctp }) => {
   return (
     <div className="absolute w-screen h-screen top-0 bg-[#00000066] -translate-x-[40%] pt-28">
       <div className="bg-white z-100 rounded-lg w-1/3 h-3/5 mx-auto mt-22 max-w-md">
-        {isRegistered ? <Login ctp={ctp} /> : <Signup ctp={ctp} />}
+        {isRegistered ? (
+          <Login ctp={ctp} ctp2={ctp2} />
+        ) : (
+          <Signup ctp={ctp} ctp2={ctp2} />
+        )}
         <button
           onClick={() => setIsRegistered(!isRegistered)}
           className="text-gray-500 font-sans w-full text-sm mt-3"

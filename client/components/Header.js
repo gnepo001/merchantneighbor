@@ -3,11 +3,19 @@ import Link from "next/link";
 import Popup from "./Popup";
 
 // Header
-const Header = ({ user }) => {
+const Header = () => {
   const [popup, setPopup] = useState(false);
+  const [user, setUser] = useState(false);
 
   const chidltoparent = (data) => {
     setPopup(data);
+  };
+
+  const chidltoparent2 = (data1) => {
+    //e.preventDefault();
+    setUser(data1);
+
+    //console.log("tester");
   };
 
   return (
@@ -28,7 +36,7 @@ const Header = ({ user }) => {
           </button>
         )}
         <div>Cart</div>
-        {popup && <Popup ctp={chidltoparent} />}
+        {popup && <Popup ctp={chidltoparent} ctp2={chidltoparent2} />}
       </div>
     </div>
   );
