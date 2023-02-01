@@ -40,6 +40,7 @@ const Header = () => {
             <div>Log in</div>
           </button>
         )}
+        <div>Sell</div>
         <div>Cart</div>
         {popup && <Popup ctp={chidltoparent} ctp2={chidltoparent2} />}
       </div>
