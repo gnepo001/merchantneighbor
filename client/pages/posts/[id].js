@@ -29,11 +29,13 @@ const Post = () => {
   }, [router.isReady]);
 
   return (
-    <div className="bg-white text-black">
+    <div className="bg-white text-black flex flex-col justify-between">
       <Header />
       <NavBar />
-      <div className="flex flex-row  mt-12 max-w-7xl mx-auto">
-        <div className="w-2/5 h-1/3 mt-5 mx-5 bg-gray-100 p-4 block overflow-hidden">
+
+      <div className="flex flex-row mt-12 max-w-7xl mx-auto">
+        {/* Image Container */}
+        <div className="w-2/5 mt-5 mx-5 bg-gray-100 p-4">
           {postData.image ? (
             <img className="rounded-xl" src={postData.image} />
           ) : (
@@ -41,12 +43,14 @@ const Post = () => {
           )}
         </div>
         <div className="w-3/5 border-t-2 mt-5">
-          <h1 className="text-center text-5xl ">{postData.title}</h1>
+          <h1 className="text-center text-5xl mt-2">{postData.title}</h1>
           <div className="pb-12">
             <h1 className="mx-5 font-bold text-2xl">
               {postData.price == 0
                 ? "Free"
-                : format("$ #,###", postData.price, { enforceMaskSign: true })}
+                : format("$ #,###", postData.price, {
+                    enforceMaskSign: true,
+                  })}
             </h1>
 
             {/* <h1>{moment(postData.created).format("M-D-YYYY")}</h1> */}
@@ -75,6 +79,12 @@ const Post = () => {
           </div>
         </div>
       </div>
+
+      <div className="mt-12 mb-2 ml-5 font-bold text-2xl">Similar Items</div>
+      <div className="mt-12 mb-2 ml-5 font-bold text-2xl">
+        Other Items By the same seller
+      </div>
+
       <Footer />
     </div>
   );
