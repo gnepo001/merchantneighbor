@@ -4,6 +4,11 @@ import axios from "axios";
 import format from "number-format.js";
 import moment from "moment";
 import { RxAvatar } from "react-icons/rx";
+import {
+  AiOutlineHeart,
+  AiOutlineShareAlt,
+  AiOutlineFlag,
+} from "react-icons/ai";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -33,15 +38,34 @@ const Post = () => {
       <Header />
       <NavBar />
 
+      {/* Post Info */}
       <div className="flex flex-row mt-12 max-w-7xl mx-auto">
-        {/* Image Container */}
-        <div className="w-2/5 mt-5 mx-5 bg-gray-100 p-4">
-          {postData.image ? (
-            <img className="rounded-xl" src={postData.image} />
-          ) : (
-            <div className="text-center p-32">No Image</div>
-          )}
+        {/* Left Column */}
+        <div className="w-2/5 mt-5 mx-5">
+          <div className="w-full bg-gray-100 p-4">
+            {postData.image ? (
+              <img className="rounded-xl" src={postData.image} />
+            ) : (
+              <div className="text-center p-32">No Image</div>
+            )}
+          </div>
+          <div className="flex flex-row mt-5 border-t-2 border-b-2">
+            <button className="bg-gray-300 rounded-2xl p-2 m-2 flex items-center">
+              <AiOutlineHeart />
+              Save
+            </button>
+            <button className="bg-gray-300 rounded-2xl p-2 m-2 flex items-center">
+              <AiOutlineShareAlt />
+              Share
+            </button>
+            <button className="bg-gray-300 rounded-2xl p-2 m-2 flex items-center">
+              <AiOutlineFlag />
+              Report
+            </button>
+          </div>
         </div>
+
+        {/* Right Column */}
         <div className="w-3/5 border-t-2 mt-5">
           <h1 className="text-center text-5xl mt-2">{postData.title}</h1>
           <div className="pb-12">
