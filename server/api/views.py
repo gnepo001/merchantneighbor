@@ -59,6 +59,18 @@ class PostToggleSold(generics.UpdateAPIView):
         serializer.instance.sold = not(serializer.instance.sold)
         serializer.save()
 
+## Create Post needs auth
+
+class CreatePost(generics.CreateAPIView):
+    serializer_class = PostSerializer
+    permission_classes = [permission.IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+        return JsonResponse({"Code":"Success Post Created"})
+
+    def perform_create(self,serializer):
+        serializer.save(user=self.request.user)
 
 @csrf_exempt
 def signup(request):
