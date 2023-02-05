@@ -40,7 +40,9 @@ const Header = () => {
             <div>Log in</div>
           </button>
         )}
-        <div>Sell</div>
+        <Link href="/postCreation">
+          <div>Sell</div>
+        </Link>
         <div>Cart</div>
         {popup && <Popup ctp={chidltoparent} ctp2={chidltoparent2} />}
       </div>
