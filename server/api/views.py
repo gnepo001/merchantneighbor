@@ -63,7 +63,7 @@ class PostToggleSold(generics.UpdateAPIView):
 
 class CreatePost(generics.CreateAPIView):
     serializer_class = PostSerializer
-    permission_classes = [permission.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         user = self.request.user
