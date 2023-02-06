@@ -5,7 +5,7 @@ import Popup from "./Popup";
 // Header
 const Header = () => {
   const [popup, setPopup] = useState(false);
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState("");
   const [email, SetEmail] = useState(false);
 
   const chidltoparent = (data) => {
@@ -40,7 +40,7 @@ const Header = () => {
             <div>Log in</div>
           </button>
         )}
-        <Link href="/postCreation">
+        <Link href={{ pathname: "/postCreation", query: { token: user } }}>
           <div>Sell</div>
         </Link>
         <div>Cart</div>
