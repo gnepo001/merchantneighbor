@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Popup from "./Popup";
 
@@ -6,7 +6,7 @@ import Popup from "./Popup";
 const Header = () => {
   const [popup, setPopup] = useState(false);
   const [user, setUser] = useState("");
-  const [email, SetEmail] = useState(false);
+  const [email, setEmail] = useState("");
 
   const chidltoparent = (data) => {
     setPopup(data);
@@ -15,13 +15,18 @@ const Header = () => {
   const chidltoparent2 = (data1) => {
     //e.preventDefault();
     console.log(data1);
-    SetEmail(data1.email);
-    setUser(data1.token);
+    // SetEmail(data1.email);
+    // setUser(data1.token);
     localStorage.setItem("token", data1.token);
     localStorage.setItem("email", data1.email);
 
     //console.log("tester");
   };
+
+  useEffect(() => {
+    setUser(localStorage.getItem("token"));
+    setEmail(localStorage.getItem("email"));
+  }, []);
 
   return (
     <div className="pt-3 flex flex-row justify-between items-center">
