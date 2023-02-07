@@ -40,7 +40,7 @@ const Header = () => {
             <div>Log in</div>
           </button>
         )}
-        <Link href={{ pathname: "/postCreation", query: { token: user } }}>
+        <Link href="/postCreation">
           <div>Sell</div>
         </Link>
         <div>Cart</div>

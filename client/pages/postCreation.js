@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineFileImage } from "react-icons/ai";
-import { useRouter } from "next/dist/client/router";
 
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 
 const postCreation = () => {
-  const router = useRouter();
-  const { token } = router.query;
-  console.log(token);
-  console.log("----");
+  const [token, setToken] = useState(null);
+
+  //waits for page to load in before calling on token item
+  useEffect(() => {
+    setToken(localStorage.getItem("token"));
+  }, []);
+
   return (
     <div className="bg-white text-black">
       <Header />
