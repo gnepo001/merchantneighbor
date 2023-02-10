@@ -73,7 +73,6 @@ const Login = ({ ctp, ctp2 }) => {
 
   //able to pass auth token to header but resets after refresh page
   const handleSubmit = async (e) => {
-    e.preventDefault();
     await login(userdata).then((d) => {
       ctp2(d.data);
     });

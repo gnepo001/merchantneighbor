@@ -38,12 +38,12 @@ const Header = () => {
         <div className="text-xs">Find things you need, Near you!</div>
       </Link>
       <div className="flex flex-row justify-around font-bold text-lg w-1/5">
-        {user ? (
-          <div>Welcome, {email}</div>
-        ) : (
+        {user == null || user === "" ? (
           <button onClick={() => setPopup(!popup)}>
             <div>Log in</div>
           </button>
+        ) : (
+          <div>Welcome, {email}</div>
         )}
         <Link href="/postCreation">
           <div>Sell</div>
