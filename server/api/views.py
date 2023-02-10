@@ -28,36 +28,36 @@ class GetSinglePost(generics.ListAPIView):
     # def get_queryset(self):
     #     return Post.objects.filter(pk=6)
 
-class PostListCreate(generics.ListCreateAPIView):
-    serializer_class = PostSerializer
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+# class PostListCreate(generics.ListCreateAPIView):
+#     serializer_class = PostSerializer
+#     #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
-    def get_queryset(self):
-        user = self.request.user
-        return Post.objects.filter(user=user).order_by('-created')
+#     def get_queryset(self):
+#         user = self.request.user
+#         return Post.objects.filter(user=user).order_by('-created')
 
-    def perform_create(self,serializer):
-        serializer.save(user=self.request.user)
+#     def perform_create(self,serializer):
+#         serializer.save(user=self.request.user)
 
-class PostRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = PostSerializer
-    permission_classes = [permissions.IsAuthenticated]
+# class PostRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+#     serializer_class = PostSerializer
+#     permission_classes = [permissions.IsAuthenticated]
 
-    def get_queryset(self):
-        user = self.request.user
-        return Post.objects.filter(user=user)
+#     def get_queryset(self):
+#         user = self.request.user
+#         return Post.objects.filter(user=user)
 
-class PostToggleSold(generics.UpdateAPIView):
-    serializer_class = PostToggleSoldSerializer
-    permission_classes = [permissions.IsAuthenticated]
+# class PostToggleSold(generics.UpdateAPIView):
+#     serializer_class = PostToggleSoldSerializer
+#     permission_classes = [permissions.IsAuthenticated]
 
-    def get_queryset(self):
-        user = self.request.user
-        return Post.objects.filter(user=user)
+#     def get_queryset(self):
+#         user = self.request.user
+#         return Post.objects.filter(user=user)
 
-    def perform_update(self,serializer):
-        serializer.instance.sold = not(serializer.instance.sold)
-        serializer.save()
+#     def perform_update(self,serializer):
+#         serializer.instance.sold = not(serializer.instance.sold)
+#         serializer.save()
 
 ## Create Post needs auth
 
@@ -65,12 +65,10 @@ class CreatePost(generics.CreateAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-    def get_queryset(self):
-        user = self.request.user
-        return JsonResponse({"Code":"Success Post Created"})
-
     def perform_create(self,serializer):
-        serializer.save(user=self.request.user)
+        # userkey was the user in my code, struggled so much to find this error.
+        # so much research but I learned alot
+        serializer.save(userkey = self.request.user) 
 
 @csrf_exempt
 def signup(request):
