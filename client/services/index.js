@@ -8,8 +8,8 @@ export const login = (data) => {
   return axios.post("http://localhost:8000/api/login/", data);
 };
 
-export const createPost = (data, token) => {
-  return axios
+export const createPost = async (data, token) => {
+  return await axios
     .post("http://localhost:8000/api/createPost/", data, {
       headers: { Authorization: `Token ${token}` },
     })
