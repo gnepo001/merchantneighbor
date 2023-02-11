@@ -2,10 +2,10 @@
 
 <p>This will be an app where users can create an account and post items for sell. Other users can comment and send offers.</p>
 
-<h1>Current Render 1/22/23</h1>
-<img src="./webappRenders/render_04.png" width=500px height=300px/> 
-<img src="./webappRenders/render_03_2.png" width=500px height=300px/>
-<img src="./webappRenders/render_04_1.png" width=500px height=300px/>
+<h1>Current Render 2/10/23</h1>
+<img src="./webappRenders/render_04.png" width=400px height=300px/> 
+<img src="./webappRenders/render_03_2.png" width=400px height=300px/>
+<img src="./webappRenders/render_05.png" width=400px height=300px/>
 
 <h3>Tech Stacked Used</h3>
 
@@ -22,6 +22,10 @@
   - moment.js
 
 <h1>Dev blogs</h1>
+-2/10/23
+
+- Added Add Post for sell page and renders fine, also added related searches under each post
+
 -1/30/23
 
 - Added Auth to the login, able to login and set token to local storage. Loging in re-renders the header with a welcome to the logged in user by email.
