@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { AiOutlineFileImage } from "react-icons/ai";
 
 import Header from "../components/Header";
@@ -8,6 +9,7 @@ import { createPost } from "../services/index";
 
 const postCreation = () => {
   const [token, setToken] = useState(null);
+  //const router = useRouter();
 
   //waits for page to load in before calling on token item
   useEffect(() => {
@@ -15,17 +17,18 @@ const postCreation = () => {
   }, []);
 
   const [post, setPost] = useState({
-    title: "1",
-    description: "1",
-    tags: "1",
-    price: 22,
-    likes: 1,
-    image: null,
+    title: "",
+    description: "",
+    tags: "",
+    price: 0,
+    likes: 0,
+    image: "",
   });
 
-  const handleSumbitForm = () => {
+  const handleSumbitForm = (e) => {
     createPost(post, token);
-    history.go("/");
+    //router.push("/3000");
+    e.preventDefault();
   };
 
   return (
@@ -49,7 +52,17 @@ const postCreation = () => {
             className="flex flex-col w-4/5 mx-auto mb-12"
             onSubmit={handleSumbitForm}
           >
-            <button className="mt-2 flex flex-row bg-[#0FE2D5] rounded-xl mx-auto justify-center items-center text-white py-1 w-1/2">
+            {/* <input
+              type="file"
+              className="mt-2 flex flex-row bg-[#0FE2D5] rounded-xl mx-auto justify-center items-center text-white py-1 w-1/2"
+              onChange={(e) => setPost({ ...post, image: e.target.value })}
+            /> */}
+
+            <button
+              type="file"
+              name="filename"
+              className="mt-2 flex flex-row bg-[#0FE2D5] rounded-xl mx-auto justify-center items-center text-white py-1 w-1/2"
+            >
               <AiOutlineFileImage className="text-3xl mr-2" />
               <div>Add Photo</div>
             </button>

@@ -19,10 +19,10 @@ const Post = () => {
   const { id } = router.query;
 
   const [postData, setPostData] = useState({});
+  const [arrs, setArrs] = useState();
 
   const fetchData = async () => {
     const data = await axios.get(`http://localhost:8000/api/posts/${id}`);
-    //console.log(data.data[0]);
     setPostData(data.data[0]);
   };
 
@@ -32,6 +32,10 @@ const Post = () => {
       fetchData();
     }
   }, [router.isReady]);
+
+  useEffect(() => {
+    setArrs(postData.tags && postData.tags.split(","));
+  }, [postData.tags]);
 
   return (
     <div className="bg-white text-black flex flex-col justify-between">
@@ -104,6 +108,17 @@ const Post = () => {
         </div>
       </div>
 
+      <div className="mt-12 mb-2 ml-5 font-bold text-2xl">Related Searches</div>
+      <div className="flex flex-row ml-12">
+        {/* Getting arrs will return undefiend this checks first if useEffect has  */}
+        {/* taken affect, dont know exactly what caused the error but this fixes it */}
+        {arrs &&
+          arrs.map((tag) => (
+            <div key={`arrs${tag}`} className="rounded-lg bg-gray-300 p-1 ml-2">
+              {tag}
+            </div>
+          ))}
+      </div>
       <div className="mt-12 mb-2 ml-5 font-bold text-2xl">Similar Items</div>
       <div className="mt-12 mb-2 ml-5 font-bold text-2xl">
         Other Items By the same seller
