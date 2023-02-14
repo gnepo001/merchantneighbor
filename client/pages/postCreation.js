@@ -61,7 +61,7 @@ const postCreation = () => {
             <button
               type="file"
               name="filename"
-              className="mt-2 flex flex-row bg-[#0FE2D5] rounded-xl mx-auto justify-center items-center text-white py-1 w-1/2"
+              className="mt-2 flex flex-row bg-[#0FE2D5] rounded-xl mx-auto justify-center items-center text-white py-1 w-1/2 hover:text-gray-500"
             >
               <AiOutlineFileImage className="text-3xl mr-2" />
               <div>Add Photo</div>
@@ -84,9 +84,22 @@ const postCreation = () => {
                 setPost({ ...post, description: e.target.value })
               }
             />
-            <label>Tags</label>
+            <div className="flex flex-row items-center">
+              <label>Tags</label>
+              <p className="text-gray-400 text-xs ml-2">
+                Add tags that best describe your item, helps promote to related
+                items
+              </p>
+            </div>
             <input className="bg-white border-2 rounded-2xl" />
-            <button type="submit">Create Post</button>
+            <div className="w-full flex justify-end mt-5">
+              <button
+                type="submit"
+                className="rounded-2xl bg-[#0FE2D5] py-2 w-1/5 text-white hover:text-gray-500"
+              >
+                Create Post
+              </button>
+            </div>
           </form>
         </div>
       )}
