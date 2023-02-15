@@ -59,8 +59,14 @@ class GetSinglePost(generics.ListAPIView):
 #         serializer.instance.sold = not(serializer.instance.sold)
 #         serializer.save()
 
-## Create Post needs auth
+class CreatorAllPosts(generics.ListAPIView):
+    serializer_class = PostSerializer
 
+    def get_queryset(self):
+        username = self.kwargs['user']
+        return Post.objects.filter(userkey=username)
+
+## Create Post needs auth
 class CreatePost(generics.CreateAPIView):
     serializer_class = PostSerializer
     permission_classes = [permissions.IsAuthenticated]
