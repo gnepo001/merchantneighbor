@@ -19,11 +19,19 @@ const Post = () => {
   const { id } = router.query;
 
   const [postData, setPostData] = useState({});
+  const [userData, setUserData] = useState([]);
   const [arrs, setArrs] = useState();
 
   const fetchData = async () => {
     const data = await axios.get(`http://localhost:8000/api/posts/${id}`);
     setPostData(data.data[0]);
+  };
+
+  const fetchClientData = async (username) => {
+    const data = await axios.get(
+      `http://localhost:8000/api/creatorAllPosts/${username}`
+    );
+    setUserData(data.data);
   };
 
   //runs during first render and any re renders
@@ -36,6 +44,12 @@ const Post = () => {
   useEffect(() => {
     setArrs(postData.tags && postData.tags.split(","));
   }, [postData.tags]);
+
+  useEffect(() => {
+    if (postData.userkey) {
+      fetchClientData(postData.userkey);
+    }
+  }, [postData]);
 
   return (
     <div className="bg-white text-black flex flex-col justify-between">
@@ -123,10 +137,20 @@ const Post = () => {
       <div className="mt-12 mb-2 ml-5 font-bold text-2xl">
         Other Items By the same seller
       </div>
+      <div className="flex flex-row justify-around">
+        {/* Checks to see if useEffect array is empty if empty return none if not then return values*/}
+        {userData.lenght !== 0
+          ? userData.map((item) => <div key={item.id}>{item.title}</div>)
+          : ""}
+      </div>
 
       <Footer />
     </div>
   );
 };
+
+// export const getServerSideProps = async () => {
+//   const itemsSoldSame = await axios.get("http://")
+// }
 
 export default Post;
