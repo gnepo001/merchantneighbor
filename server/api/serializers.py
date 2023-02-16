@@ -7,7 +7,7 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        fields = ['id','user','datejoined','title','likes','image','description','created','date_modified','price','sold','tags']
+        fields = ['id','user','userkey','datejoined','title','likes','image','description','created','date_modified','price','sold','tags']
 
 class PostToggleSoldSerializer(serializers.ModelSerializer):
     class Meta:
