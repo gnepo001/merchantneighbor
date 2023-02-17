@@ -14,6 +14,8 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import NavBar from "../../components/NavBar";
 
+import Mini_Card from "../../components/Mini_Card";
+
 const Post = () => {
   const router = useRouter(); //create router to pull data from url params
   const { id } = router.query;
@@ -137,11 +139,17 @@ const Post = () => {
       <div className="mt-12 mb-2 ml-5 font-bold text-2xl">
         Other Items By the same seller
       </div>
-      <div className="flex flex-row justify-around">
+      <div className="flex flex-row">
         {/* Checks to see if useEffect array is empty if empty return none if not then return values*/}
-        {userData.lenght !== 0
-          ? userData.map((item) => <div key={item.id}>{item.title}</div>)
-          : ""}
+        {userData.lenght !== 0 &&
+          userData.map((item) => (
+            <Mini_Card
+              key={item.id}
+              title={item.title}
+              image={item.image}
+              price={item.price}
+            />
+          ))}
       </div>
 
       <Footer />
