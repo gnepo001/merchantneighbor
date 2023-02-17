@@ -2,10 +2,14 @@
 
 <p>This will be an app where users can create an account and post items for sell. Other users can comment and send offers.</p>
 
-<h1>Current Render 2/10/23</h1>
+<h1>How far my project has come 2/16/23</h1>
+
+<img src="./webappRenders/bestRender_01.png" width=500px height=550px/>
+
+<h2>Home page</h2>
 <img src="./webappRenders/render_04.png" width=400px height=300px/> 
+<h2>Login Page</h2>
 <img src="./webappRenders/render_03_2.png" width=400px height=300px/>
-<img src="./webappRenders/render_05.png" width=400px height=300px/>
 
 <h3>Tech Stacked Used</h3>
 
@@ -22,6 +26,11 @@
   - moment.js
 
 <h1>Dev blogs</h1>
+-2/16/23
+
+- wow my project has come along so well, just look how the individual post looks wow
+- added tags, other items being sold by the same seller, look very very real 😅
+
 -2/10/23
 
 - Added Add Post for sell page and renders fine, also added related searches under each post
