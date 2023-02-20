@@ -145,6 +145,7 @@ const Post = () => {
           userData.map((item) => (
             <Mini_Card
               key={item.id}
+              id={item.id}
               title={item.title}
               image={item.image}
               price={item.price}
