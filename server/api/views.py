@@ -64,7 +64,9 @@ class CreatorAllPosts(generics.ListAPIView):
 
     def get_queryset(self):
         username = self.kwargs['user']
-        return Post.objects.filter(userkey=username)
+        #return posts from the same user and only the first 5
+        return Post.objects.filter(userkey=username)[0:5] 
+
 
 ## Create Post needs auth
 class CreatePost(generics.CreateAPIView):
