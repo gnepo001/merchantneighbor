@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import format from "number-format.js";
+import Link from "next/link";
 import moment from "moment";
 import { RxAvatar } from "react-icons/rx";
 import {
@@ -130,9 +131,17 @@ const Post = () => {
         {/* taken affect, dont know exactly what caused the error but this fixes it */}
         {arrs &&
           arrs.map((tag) => (
-            <div key={`arrs${tag}`} className="rounded-lg bg-gray-300 p-1 ml-2">
+            <Link
+              href={
+                {
+                  // get related searches
+                }
+              }
+              key={`arrs${tag}`}
+              className="rounded-lg bg-gray-300 p-1 ml-2"
+            >
               {tag}
-            </div>
+            </Link>
           ))}
       </div>
       <div className="mt-12 mb-2 ml-5 font-bold text-2xl">Similar Items</div>
