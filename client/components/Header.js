@@ -43,7 +43,10 @@ const Header = () => {
             <div>Log in</div>
           </button>
         ) : (
-          <div>Welcome, {email}</div>
+          <div className="flex flex-row">
+            <div>Welcome, {email}</div>
+            <div className="ml-3">Log out</div>
+          </div>
         )}
         <Link href="/postCreation">
           <div>Sell</div>
