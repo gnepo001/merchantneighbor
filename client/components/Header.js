@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Popup from "./Popup";
 
+import { lougout } from "../services/index";
+
 // Header
 const Header = () => {
   const [popup, setPopup] = useState(false);
@@ -10,6 +12,10 @@ const Header = () => {
 
   const chidltoparent = (data) => {
     setPopup(data);
+  };
+
+  const logout = () => {
+    lougout();
   };
 
   const chidltoparent2 = (data1) => {
@@ -45,7 +51,9 @@ const Header = () => {
         ) : (
           <div className="flex flex-row">
             <div>Welcome, {email}</div>
-            <div className="ml-3">Log out</div>
+            <button onClick={() => logout}>
+              <div className="ml-3">Log out</div>
+            </button>
           </div>
         )}
         <Link href="/postCreation">
