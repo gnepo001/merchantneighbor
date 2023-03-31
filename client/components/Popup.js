@@ -1,7 +1,8 @@
+import react from "react";
 import React, { useState } from "react";
 import { signup, login } from "../services/index";
 
-const Signup = ({ ctp, user2 }) => {
+const Signup = ({ ctp }) => {
   const [userdata, setUserdata] = useState({
     email: "",
     password: "",
@@ -72,8 +73,8 @@ const Login = ({ ctp, ctp2 }) => {
   });
 
   //able to pass auth token to header but resets after refresh page
-  const handleSubmit = async (e) => {
-    await login(userdata).then((d) => {
+  const handleSubmit = () => {
+    login(userdata).then((d) => {
       ctp2(d.data);
     });
     ctp(false); //auth grabbed and exit form
@@ -95,7 +96,6 @@ const Login = ({ ctp, ctp2 }) => {
         className="flex flex-col w-2/3 mx-auto mt-6"
         autoComplete="off"
         onSubmit={handleSubmit}
-        //onSubmit={() => ctp2("tester")}
       >
         <label htmlFor="email">Email</label>
         <input

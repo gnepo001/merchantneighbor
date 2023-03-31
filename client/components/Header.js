@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Popup from "./Popup";
 
-import { lougout } from "../services/index";
+import { logout } from "../services/index";
 
 // Header
 const Header = () => {
@@ -13,20 +13,10 @@ const Header = () => {
   const chidltoparent = (data) => {
     setPopup(data);
   };
-
-  const logout = () => {
-    lougout();
-  };
-
   const chidltoparent2 = (data1) => {
-    //e.preventDefault();
     console.log(data1);
-    // SetEmail(data1.email);
-    // setUser(data1.token);
     localStorage.setItem("token", data1.token);
     localStorage.setItem("email", data1.email);
-
-    //console.log("tester");
   };
 
   useEffect(() => {
@@ -51,7 +41,7 @@ const Header = () => {
         ) : (
           <div className="flex flex-row">
             <div>Welcome, {email}</div>
-            <button onClick={() => logout}>
+            <button onClick={() => logouthandle()}>
               <div className="ml-3">Log out</div>
             </button>
           </div>
