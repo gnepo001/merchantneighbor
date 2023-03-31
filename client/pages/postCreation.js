@@ -7,6 +7,20 @@ import Header from "../components/Header";
 import NavBar from "../components/NavBar";
 import { createPost } from "../services/index";
 
+const NotLoggedIn = () => {
+  return (
+    <div>
+      <div className="mt-32 text-center text-xl">
+        <div>Create Your Profile and start selling today!</div>
+        <button className="bg-[#0FE2D5] rounded-xl p-3 text-white">
+          {" "}
+          Sign Up!
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const postCreation = () => {
   const [token, setToken] = useState(null);
   //const router = useRouter();
@@ -36,7 +50,7 @@ const postCreation = () => {
       <Header />
       <NavBar />
       {token == null || token === "" ? (
-        <div>Not Logged in!</div>
+        <NotLoggedIn />
       ) : (
         <div className="max-w-5xl max-h-5xl mx-auto border-4 rounded-2xl mt-12">
           <Link
