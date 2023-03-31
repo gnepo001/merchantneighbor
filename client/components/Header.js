@@ -14,9 +14,19 @@ const Header = () => {
     setPopup(data);
   };
   const chidltoparent2 = (data1) => {
-    console.log(data1);
+    //console.log(data1);
+
     localStorage.setItem("token", data1.token);
     localStorage.setItem("email", data1.email);
+    location.reload();
+  };
+
+  const logouthandle = () => {
+    setUser("");
+    setEmail("");
+    localStorage.setItem("token", "");
+    localStorage.setItem("email", "");
+    //logout(user);
   };
 
   useEffect(() => {

@@ -1,4 +1,3 @@
-import react from "react";
 import React, { useState } from "react";
 import { signup, login } from "../services/index";
 
@@ -74,9 +73,13 @@ const Login = ({ ctp, ctp2 }) => {
 
   //able to pass auth token to header but resets after refresh page
   const handleSubmit = () => {
-    login(userdata).then((d) => {
-      ctp2(d.data);
-    });
+    login(userdata)
+      .then((d) => {
+        ctp2(d.data);
+      })
+      .catch((e) => {
+        console.log("error");
+      });
     ctp(false); //auth grabbed and exit form
   };
 

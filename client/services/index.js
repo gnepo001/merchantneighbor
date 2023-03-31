@@ -2,8 +2,8 @@ import axios from "axios";
 
 // for apis with return important to place async and await here
 
-export const signup = (data) => {
-  return axios.post("http://localhost:8000/api/signup/", data);
+export const signup = async (data) => {
+  return await axios.post("http://localhost:8000/api/signup/", data);
 };
 
 export const login = async (data) => {
@@ -20,8 +20,13 @@ export const createPost = async (data, token) => {
     });
 };
 
-// export const logout = async () => {
-//   console.log("preesed");
-//   localStorage.removeItem("token");
-//   await axios.post("http://localhost:8000/api/logout/");
-// };
+// export const logout = async (token) => {
+//   return await axios
+//     .post("http://localhost:8000/api/logout/", {
+//       headers: { Authorization: `Token ${token}` },
+//     })
+//     .catch((e) => {
+//       console.log(e);
+//     });
+//localStorage.removeItem("token");
+//};
