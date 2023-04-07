@@ -116,7 +116,10 @@ const Post = () => {
               <RxAvatar />
             </div>
             <div>
-              <div className="font-bold">{postData.user}</div>
+              <Link href="/">
+                <div className="font-bold">{postData.user}</div>
+              </Link>
+
               <h1>
                 Member since {moment(postData.datejoined).format("MMM YYYY")}
               </h1>
