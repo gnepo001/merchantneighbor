@@ -1,5 +1,5 @@
 from rest_framework import generics, permissions
-from .serializers import PostSerializer, PostToggleSoldSerializer
+from .serializers import PostSerializer, PostToggleSoldSerializer, UserSerializer
 from post.models import Post
 
 from django.db import IntegrityError
@@ -78,6 +78,13 @@ class CreatePost(generics.CreateAPIView):
         # so much research but I learned alot
         serializer.save(userkey = self.request.user) 
 
+class User(generics.ListAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+    def get_queryset(self):
+        return CustomUser.objects.filter(pk=self.kwargs['pk']) #get url parameters
+
 @csrf_exempt
 def signup(request):
     if request.method == 'POST':
@@ -110,5 +117,23 @@ def login(request):
                 email = data['email'] #collect email send to client
             except: # if token not in db, create a new one
                 token = Token.objects.create(user=user)
+                print("token does not exist")
             #returns data dict with token and email
             return JsonResponse({'token':str(token),'email':str(email)}, status=201)
+
+
+# @csrf_exempt
+# def logout(request):
+#     if request.method == "POST":
+#         t = JSONParser().parse(request) 
+#         user = authenticate(
+#             request,
+#             token = t)
+#         if user is None:
+#             return JsonResponse({'error':'unable to login. check username and password'},status=400)
+#         else: 
+#             try:
+#                 user.auth_token.delete()
+#             except: # if token not in db, create a new one
+#                 print("token does not exist")
+#         return Response(status=status.HTTP_200_OK)
