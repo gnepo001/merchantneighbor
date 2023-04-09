@@ -116,10 +116,13 @@ const Post = () => {
               <RxAvatar />
             </div>
             <div>
-              <Link href="/">
+              <Link
+                href={{
+                  pathname: `../users/${postData.userkey}`,
+                }}
+              >
                 <div className="font-bold">{postData.user}</div>
               </Link>
-
               <h1>
                 Member since {moment(postData.datejoined).format("MMM YYYY")}
               </h1>
