@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import moment from "moment";
+
+import Header from "../../components/Header";
+import NavBar from "../../components/NavBar";
 
 const UserPage = () => {
   const router = useRouter();
@@ -22,7 +26,10 @@ const UserPage = () => {
 
   return (
     <div>
-      Tester<div>{userData.username}</div>
+      <Header />
+      <NavBar />
+      <div>{userData.username}</div>
+      <div>{moment(userData.datejoined).format("MMM YYYY")}</div>
     </div>
   );
 };
