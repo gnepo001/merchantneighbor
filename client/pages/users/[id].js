@@ -15,7 +15,6 @@ const UserPage = () => {
   const fetchData = async () => {
     const data = await axios.get(`http://localhost:8000/api/users/${id}`);
     setUserData(data.data[0]);
-    console.log(data);
   };
 
   useEffect(() => {
@@ -25,11 +24,15 @@ const UserPage = () => {
   }, [router.isReady]);
 
   return (
-    <div>
+    <div className="bg-white text-black">
       <Header />
       <NavBar />
-      <div>{userData.username}</div>
-      <div>{moment(userData.datejoined).format("MMM YYYY")}</div>
+      <div className="mt-12 ml-8">
+        <div className="font-bold text-xl">{userData.username}</div>
+        <div>
+          Memeber since {moment(userData.datejoined).format("MMM YYYY")}
+        </div>
+      </div>
     </div>
   );
 };
