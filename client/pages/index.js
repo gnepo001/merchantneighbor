@@ -10,9 +10,11 @@ const index = ({ posts }) => {
   const [user, setUser] = useState(null);
 
   return (
-    <div className="bg-white text-black flex flex-col">
-      <Header user={user} />
-      <NavBar />
+    <div className="bg-white text-black flex flex-col justify-between min-h-screen">
+      <div>
+        <Header user={user} />
+        <NavBar />
+      </div>
       <Posts posts={posts} />
       <Footer />
     </div>

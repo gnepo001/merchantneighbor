@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { AiOutlineFileImage } from "react-icons/ai";
 
 import Header from "../components/Header";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 import { createPost } from "../services/index";
 
 const NotLoggedIn = () => {
@@ -46,9 +46,11 @@ const postCreation = () => {
   };
 
   return (
-    <div className="bg-white text-black">
-      <Header />
-      <NavBar />
+    <div className="bg-white text-black flex flex-col justify-between min-h-screen">
+      <div>
+        <Header />
+        <NavBar />
+      </div>
       {token == null || token === "" ? (
         <NotLoggedIn />
       ) : (
@@ -66,12 +68,6 @@ const postCreation = () => {
             className="flex flex-col w-4/5 mx-auto mb-12"
             onSubmit={handleSumbitForm}
           >
-            {/* <input
-              type="file"
-              className="mt-2 flex flex-row bg-[#0FE2D5] rounded-xl mx-auto justify-center items-center text-white py-1 w-1/2"
-              onChange={(e) => setPost({ ...post, image: e.target.value })}
-            /> */}
-
             <button
               type="file"
               name="filename"
@@ -117,6 +113,7 @@ const postCreation = () => {
           </form>
         </div>
       )}
+      <Footer />
     </div>
   );
 };
