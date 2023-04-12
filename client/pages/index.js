@@ -12,10 +12,12 @@ const index = ({ posts }) => {
   return (
     <div className="bg-white text-black flex flex-col justify-between min-h-screen">
       <div>
-        <Header user={user} />
-        <NavBar />
+        <div>
+          <Header user={user} />
+          <NavBar />
+        </div>
+        <Posts posts={posts} />
       </div>
-      <Posts posts={posts} />
       <Footer />
     </div>
   );
