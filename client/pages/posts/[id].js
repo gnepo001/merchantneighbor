@@ -115,7 +115,7 @@ const Post = () => {
             <div className="rounded-full text-3xl w-5 text-center justify-center">
               <RxAvatar />
             </div>
-            <div>
+            <div className="ml-5">
               <Link
                 href={{
                   pathname: `../users/${postData.userkey}`,
