@@ -18,10 +18,12 @@ class Post(models.Model):
     price = models.IntegerField(default=0,blank=True)
     description = models.TextField(blank=True)
     likes = models.IntegerField(default=0)
+    category = models.CharField(max_length=20,default=0)
     tags = models.CharField(max_length=100,blank=True,default="tag1,tag2,...") #sqlite doesnt support arrays
     date_modified = models.DateTimeField(auto_now=True,blank=True)
     created = models.DateTimeField(auto_now_add=True,blank=True)
     sold = models.BooleanField(default=False,blank=True)
+
 
     @property
     def user(self):
