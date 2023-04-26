@@ -32,7 +32,7 @@ const UserPage = () => {
         <div>
           Memeber since {moment(userData.datejoined).format("MMM YYYY")}
         </div>
-        <div>Selling</div>
+        <div>Items</div>
       </div>
     </div>
   );
