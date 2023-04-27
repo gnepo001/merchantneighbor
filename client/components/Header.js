@@ -9,6 +9,7 @@ const Header = () => {
   const [popup, setPopup] = useState(false);
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
+  const [ID, setID] = useState("");
 
   const chidltoparent = (data) => {
     setPopup(data);
@@ -18,20 +19,24 @@ const Header = () => {
 
     localStorage.setItem("token", data1.token);
     localStorage.setItem("email", data1.email);
+    localStorage.setItem("ID", data1.id);
     location.reload();
   };
 
   const logouthandle = () => {
     setUser("");
     setEmail("");
+    setID("");
     localStorage.setItem("token", "");
     localStorage.setItem("email", "");
+    localStorage.setItem("ID", "");
     //logout(user);
   };
 
   useEffect(() => {
     setUser(localStorage.getItem("token"));
     setEmail(localStorage.getItem("email"));
+    setID(localStorage.getItem("ID"));
   }, []);
 
   return (
@@ -50,7 +55,14 @@ const Header = () => {
           </button>
         ) : (
           <div className="flex flex-row">
-            <div>Welcome, {email}</div>
+            <Link
+              href={{
+                pathname: `../users/${ID}`,
+              }}
+              className="hover:underline"
+            >
+              Welcome, {email}
+            </Link>
             <button onClick={() => logouthandle()}>
               <div className="ml-3">Log out</div>
             </button>
