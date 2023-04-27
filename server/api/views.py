@@ -115,11 +115,12 @@ def login(request):
             try:
                 token = Token.objects.get(user=user)
                 email = data['email'] #collect email send to client
+                userid = Token.objects.get(key=token).user_id
             except: # if token not in db, create a new one
                 token = Token.objects.create(user=user)
                 print("token does not exist")
             #returns data dict with token and email
-            return JsonResponse({'token':str(token),'email':str(email)}, status=201)
+            return JsonResponse({'token':str(token),'email':str(email),"id":str(userid)}, status=201)
 
 
 # @csrf_exempt
