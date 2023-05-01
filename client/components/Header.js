@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import Popup from "./Popup";
+import { Popup } from "./index.js";
 
 import { logout } from "../services/index";
 

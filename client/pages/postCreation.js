@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { AiOutlineFileImage } from "react-icons/ai";
 
-import Header from "../components/Header";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import { Header, NavBar, Footer } from "../../components/index";
+
 import { createPost } from "../services/index";
 
 const NotLoggedIn = () => {

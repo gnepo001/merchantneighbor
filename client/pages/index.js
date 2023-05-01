@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-import Header from "../components/Header";
-import NavBar from "../components/NavBar";
-import Posts from "../components/Posts";
-import Footer from "../components/Footer";
+import { Header, NavBar, Posts, Footer } from "../components/index";
 
 const index = ({ posts }) => {
   const [user, setUser] = useState(null);

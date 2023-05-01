@@ -3,8 +3,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import moment from "moment";
 
-import Header from "../../components/Header";
-import NavBar from "../../components/NavBar";
+import { Header, NavBar, Footer } from "../../components/index";
 
 const UserPage = () => {
   const router = useRouter();
@@ -34,6 +33,7 @@ const UserPage = () => {
         </div>
         <div>Items</div>
       </div>
+      <Footer />
     </div>
   );
 };

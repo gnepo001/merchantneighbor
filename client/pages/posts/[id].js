@@ -11,11 +11,7 @@ import {
   AiOutlineFlag,
 } from "react-icons/ai";
 
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import NavBar from "../../components/NavBar";
-
-import Mini_Card from "../../components/Mini_Card";
+import { Header, NavBar, Footer, Mini_Card } from "../../components/index.js";
 
 const Post = () => {
   const router = useRouter(); //create router to pull data from url params
