@@ -152,7 +152,7 @@ const Post = () => {
       </div>
       <div className="flex flex-row">
         {/* Checks to see if useEffect array is empty if empty return none if not then return values*/}
-        {userData.lenght !== 0 &&
+        {userData.length !== 0 &&
           userData.map((item) => (
             <Mini_Card
               key={item.id}

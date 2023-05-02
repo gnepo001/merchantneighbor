@@ -10,10 +10,18 @@ const UserPage = () => {
   const { id } = router.query;
 
   const [userData, setUserData] = useState({});
+  const [items, setItems] = useState([]);
 
   const fetchData = async () => {
     const data = await axios.get(`http://localhost:8000/api/users/${id}`);
     setUserData(data.data[0]);
+  };
+
+  const fetchItems = async (username) => {
+    const data = await axios.get(
+      `http://localhost:8000/api/creatorAllPosts/${username}`
+    );
+    setItems(data.data);
   };
 
   useEffect(() => {
