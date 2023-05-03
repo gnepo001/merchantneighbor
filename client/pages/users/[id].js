@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import moment from "moment";
 
-import { Header, NavBar, Footer } from "../../components/index";
+import { Header, NavBar, Footer, Mini_Card } from "../../components/index";
 
 const UserPage = () => {
   const router = useRouter();
@@ -17,16 +17,18 @@ const UserPage = () => {
     setUserData(data.data[0]);
   };
 
-  const fetchItems = async (username) => {
+  const fetchItems = async () => {
     const data = await axios.get(
-      `http://localhost:8000/api/creatorAllPosts/${username}`
+      `http://localhost:8000/api/creatorAllPosts/${id}`
     );
     setItems(data.data);
+    console.log(data.data);
   };
 
   useEffect(() => {
     if (router.isReady) {
       fetchData();
+      fetchItems();
     }
   }, [router.isReady]);
 
@@ -40,6 +42,16 @@ const UserPage = () => {
           Memeber since {moment(userData.datejoined).format("MMM YYYY")}
         </div>
         <div>Items</div>
+        {items.length !== 0 &&
+          items.map((item) => (
+            <Mini_Card
+              key={item.id}
+              id={item.id}
+              title={item.title}
+              image={item.image}
+              price={item.price}
+            />
+          ))}
       </div>
       <Footer />
     </div>
