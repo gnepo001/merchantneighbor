@@ -6,6 +6,7 @@ import moment from "moment";
 import { Header, NavBar, Footer, Mini_Card } from "../../components/index";
 
 const UserPage = () => {
+  //router allows to get param from pior link
   const router = useRouter();
   const { id } = router.query;
 
@@ -22,9 +23,10 @@ const UserPage = () => {
       `http://localhost:8000/api/creatorAllPosts/${id}`
     );
     setItems(data.data);
-    console.log(data.data);
   };
 
+  //after checking that router has loaded, collecting user data
+  //and user items will be fetched
   useEffect(() => {
     if (router.isReady) {
       fetchData();
@@ -42,16 +44,18 @@ const UserPage = () => {
           Memeber since {moment(userData.datejoined).format("MMM YYYY")}
         </div>
         <div>Items</div>
-        {items.length !== 0 &&
-          items.map((item) => (
-            <Mini_Card
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              image={item.image}
-              price={item.price}
-            />
-          ))}
+        <div className="flex flex-row">
+          {items.length !== 0 &&
+            items.map((item) => (
+              <Mini_Card
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                image={item.image}
+                price={item.price}
+              />
+            ))}
+        </div>
       </div>
       <Footer />
     </div>

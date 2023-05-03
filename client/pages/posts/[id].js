@@ -30,7 +30,7 @@ const Post = () => {
     const data = await axios.get(
       `http://localhost:8000/api/creatorAllPosts/${username}`
     );
-    setUserData(data.data);
+    setUserData(data.data.slice(0, 6));
   };
 
   //runs during first render and any re renders
@@ -168,9 +168,5 @@ const Post = () => {
     </div>
   );
 };
-
-// export const getServerSideProps = async () => {
-//   const itemsSoldSame = await axios.get("http://")
-// }
 
 export default Post;
