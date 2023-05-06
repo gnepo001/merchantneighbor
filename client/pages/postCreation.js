@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { AiOutlineFileImage } from "react-icons/ai";
 
-import { Header, NavBar, Footer } from "../../components/index";
+import { Header, NavBar, Footer } from "../components/index.js";
 
 import { createPost } from "../services/index";
+
+//-----This will handle post creation from the client side-----//
+//     and add it to the database                             //
 
 const NotLoggedIn = () => {
   return (
@@ -22,7 +25,6 @@ const NotLoggedIn = () => {
 
 const postCreation = () => {
   const [token, setToken] = useState(null);
-  //const router = useRouter();
 
   //waits for page to load in before calling on token item
   useEffect(() => {
@@ -40,7 +42,6 @@ const postCreation = () => {
 
   const handleSumbitForm = (e) => {
     createPost(post, token);
-    //router.push("/3000");
     e.preventDefault();
   };
 
