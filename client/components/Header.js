@@ -40,39 +40,49 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="pt-3 flex flex-row justify-between items-center">
-      <Link
-        href="/"
-        className="flex flex-col text-[#0FE2D5] text-center w-1/5 ml-5"
-      >
-        <div className="font-bold text-3xl">MerchantNeighbor</div>
-        <div className="text-xs">Find things you need, Near you!</div>
-      </Link>
-      <div className="flex flex-row justify-around font-bold text-lg w-1/5">
-        {user == null || user === "" ? (
-          <button onClick={() => setPopup(!popup)}>
-            <div>Log in</div>
-          </button>
-        ) : (
-          <div className="flex flex-row">
-            <Link
-              href={{
-                pathname: `../users/${ID}`,
-              }}
-              className="hover:underline"
-            >
-              Welcome, {email}
-            </Link>
-            <button onClick={() => logouthandle()}>
-              <div className="ml-3">Log out</div>
-            </button>
-          </div>
-        )}
-        <Link href="/postCreation">
-          <div>Sell</div>
+    <div>
+      <div className="pt-3 flex flex-row justify-between items-center">
+        <Link
+          href="/"
+          className="flex flex-col text-[#0FE2D5] text-center w-1/5 ml-5"
+        >
+          <div className="font-bold text-3xl">MerchantNeighbor</div>
+          <div className="text-xs">Find things you need, Near you!</div>
         </Link>
-        <div>Cart</div>
-        {popup && <Popup ctp={chidltoparent} ctp2={chidltoparent2} />}
+
+        <div className="flex flex-row justify-around font-bold text-lg w-1/5">
+          {user == null || user === "" ? (
+            <button onClick={() => setPopup(!popup)}>
+              <div>Log in</div>
+            </button>
+          ) : (
+            <div className="flex flex-row">
+              <Link
+                href={{
+                  pathname: `../users/${ID}`,
+                }}
+                className="hover:underline"
+              >
+                Welcome, {email}
+              </Link>
+              <button onClick={() => logouthandle()}>
+                <div className="ml-3">Log out</div>
+              </button>
+            </div>
+          )}
+          <Link href="/postCreation">
+            <div>Sell</div>
+          </Link>
+          <div>Cart</div>
+          {popup && <Popup ctp={chidltoparent} ctp2={chidltoparent2} />}
+        </div>
+      </div>
+      <div className="w-full flex">
+        <input
+          className="bg-white border-2 rounded-lg w-1/3 mx-auto"
+          type="text"
+          placeholder="Search"
+        />
       </div>
     </div>
   );
