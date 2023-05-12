@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Popup } from "./index.js";
 
+import { AiOutlineSearch } from "react-icons/ai";
+
 import { logout } from "../services/index";
 
 // Header
@@ -32,6 +34,8 @@ const Header = () => {
     localStorage.setItem("ID", "");
     //logout(user);
   };
+
+  const searchItems = () => {};
 
   useEffect(() => {
     setUser(localStorage.getItem("token"));
@@ -77,12 +81,24 @@ const Header = () => {
           {popup && <Popup ctp={chidltoparent} ctp2={chidltoparent2} />}
         </div>
       </div>
-      <div className="w-full flex">
-        <input
-          className="bg-white border-2 rounded-lg w-1/3 mx-auto"
-          type="text"
-          placeholder="Search"
-        />
+      <div className="w-full">
+        <form
+          autoComplete="off"
+          onSubmit={() => searchItems}
+          className="w-1/3 mx-auto flex justify-center items-baseline"
+        >
+          <input
+            className="bg-white border-2 rounded-lg "
+            type="text"
+            placeholder="Search"
+          />
+          <button
+            className="text-[#0FE2D5] text-xl ml-5 rounded-xl mt-5"
+            type="submit"
+          >
+            <AiOutlineSearch />
+          </button>
+        </form>
       </div>
     </div>
   );
