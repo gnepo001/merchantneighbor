@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { AiOutlineFileImage } from "react-icons/ai";
@@ -9,6 +11,7 @@ import { createPost } from "../services/index";
 //-----This will handle post creation from the client side-----//
 //     and add it to the database                             //
 
+//Will show on page if user not in session
 const NotLoggedIn = () => {
   return (
     <div>
@@ -23,6 +26,7 @@ const NotLoggedIn = () => {
   );
 };
 
+//Page Rendering
 const postCreation = () => {
   const [token, setToken] = useState(null);
 
@@ -32,17 +36,20 @@ const postCreation = () => {
   }, []);
 
   const [post, setPost] = useState({
-    title: "",
-    description: "",
-    tags: "",
+    title: "Test",
+    image: "/test",
     price: 0,
+    description: "tester",
     likes: 0,
-    image: "",
+    category: "test",
+    tags: "hello",
   });
 
-  const handleSumbitForm = (e) => {
+  const handleSumbitForm = (event) => {
     createPost(post, token);
-    e.preventDefault();
+
+    // console.log(post);
+    // event.preventDefault();
   };
 
   return (
