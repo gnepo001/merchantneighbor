@@ -5,6 +5,11 @@ import axios from "axios";
 
 import { Header, NavBar, Posts, Footer } from "../components/index";
 
+export const metadata = {
+  title: "MerchantNeighbor",
+  description: "Discover and Sell anything and everything",
+};
+
 const index = ({ posts }) => {
   const [user, setUser] = useState(null);
 
